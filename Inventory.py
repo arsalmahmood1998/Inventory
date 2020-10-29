@@ -1,15 +1,22 @@
 import fileinput
 
 dictionary = {}
-for line in fileinput.input(files = "CSV-Data.csv"):
-    if fileinput.lineno() != 1:
+try:
+    for line in fileinput.input(files = "CSV-Data.csv"):
+        if fileinput.lineno() == 1:
+            keys=line.split(",")
+    else:
         row = (line.split(","))
-        dictionary[row[0]] = {"Title":row[1],
-                         "Description":row[2],
-                         "Code":row[3],
-                         "Price":row[4],
-                         "Quantity":row[5]
-                         }
+        dictionary[str(row[0])] = {str(keys[1]):row[1],
+                                  str(keys[2]):row[2],
+                                  str(keys[3]):row[3],
+                                  str(keys[4]):row[4],
+                                  str(keys[5]):row[5]
+                                  }
+except FileNotFoundError :
+    print("File not Found")
+    exit()
+
 
 def returnKeysFromDictionary():
     keys = list(dictionary.keys())
@@ -24,7 +31,7 @@ def returnValuesInList(string):
 
 def returnTotalPrice():
     totalPrice = 0
-    prices = returnValuesInList("Price")
+    prices = returnValuesInList("price")
     for price in prices:
         totalPrice = totalPrice + price
     return totalPrice
@@ -62,10 +69,10 @@ def returnMinValue(string):
         if minimumQuantity == float(dictionary[numbers][string]):
             return str(dictionary[numbers])
 
-print("Maximum Quantity: " + returnMaxValue("Quantity"))
+print("Maximum Quantity: " + returnMaxValue("quantity"))
 
-print("Minimum Quantity: " + returnMinValue("Quantity"))
+print("Minimum Quantity: " + returnMinValue("quantity"))
 
-print("Maximum Price: " + returnMaxValue("Price"))
+print("Maximum Price: " + returnMaxValue("price"))
 
-print("Minimum Price: " + returnMinValue("Price"))
+print("Minimum Price: " + returnMinValue("price"))
