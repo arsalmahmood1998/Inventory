@@ -1,22 +1,25 @@
-import fileinput
+file=open("New CSV-Data.csv","r")
 
 dictionary = {}
+
 try:
-    for line in fileinput.input(files = "CSV-Data.csv"):
-        if fileinput.lineno() == 1:
-            keys=line.split(",")
-    else:
-        row = (line.split(","))
-        dictionary[str(row[0])] = {str(keys[1]):row[1],
-                                  str(keys[2]):row[2],
-                                  str(keys[3]):row[3],
-                                  str(keys[4]):row[4],
-                                  str(keys[5]):row[5]
-                                  }
+    for index,line in enumerate(file):
+        if index == 0:
+            keys = line.split(",")
+        else:
+           row = (line.split(","))
+           count = (len(row)-1)
+           dictionary[str(row[0])] = {str(keys[1]):row[1],
+                                      str(keys[2]):row[2],
+                                      str(keys[3]):row[3],
+                                      str(keys[4]):row[4],
+                                      str(keys[5]):row[5],
+                                      str(keys[6]):row[6]
+                                      }
+
 except FileNotFoundError :
     print("File not Found")
     exit()
-
 
 def returnKeysFromDictionary():
     keys = list(dictionary.keys())
