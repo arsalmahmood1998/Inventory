@@ -14,7 +14,7 @@ for index,line in enumerate(file):
             row = (line.split(","))
             for j in range(len(row)-1):
                 dict[titles[j]].append(row[j])
-                
+
 def sum(columnName):
     list = dict[columnName]
     sum = 0
@@ -64,3 +64,18 @@ print("Maximum Value of quantity: "+ str(maximumQuantity("quantity")))
 
 count = len(dict["id"])
 print("Total number of Items: " + str(count))
+
+def value(rowNum,columnNum):
+    try:
+        if rowNum == 1:
+            values=list(dict.keys())
+            return values[columnNum-1]
+        else:
+            values = dict[titles[columnNum-1]]
+            for i in range(len(values)):
+                if values[rowNum-2] == values[i]:
+                    return values[i]
+    except IndexError:
+        print("Given values does not exists")
+
+print("Your required values is: " + str(value(4,7)))
