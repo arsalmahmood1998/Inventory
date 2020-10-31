@@ -71,6 +71,8 @@ def value(rowNum,columnNum):
         return values[columnNum-1]
     else:
         values = dict[titles[columnNum-1]]
+        if rowNum <= 0:
+            return values[rowNum-2],values.index(values[rowNum])+2,titles.index(titles[columnNum])
         return values[rowNum-2]
 
-print("Your required value is: " + str(value(19,7)))
+print("Your required value is: " + str(value(-6,-5)))
