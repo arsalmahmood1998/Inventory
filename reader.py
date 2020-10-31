@@ -66,16 +66,11 @@ count = len(dict["id"])
 print("Total number of Items: " + str(count))
 
 def value(rowNum,columnNum):
-    try:
-        if rowNum == 1:
-            values=list(dict.keys())
-            return values[columnNum-1]
-        else:
-            values = dict[titles[columnNum-1]]
-            for i in range(len(values)):
-                if values[rowNum-2] == values[i]:
-                    return values[i]
-    except IndexError:
-        print("Given value does not exists")
+    if rowNum == 1:
+        values=list(dict.keys())
+        return values[columnNum-1]
+    else:
+        values = dict[titles[columnNum-1]]
+        return values[rowNum-2]
 
-print("Your required value is: " + str(value(4,7)))
+print("Your required value is: " + str(value(19,7)))
