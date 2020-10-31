@@ -76,6 +76,6 @@ def value(rowNum,columnNum):
                 if values[rowNum-2] == values[i]:
                     return values[i]
     except IndexError:
-        print("Given values does not exists")
+        print("Given value does not exists")
 
 print("Your required values is: " + str(value(4,7)))
