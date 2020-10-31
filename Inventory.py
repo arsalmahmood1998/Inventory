@@ -1,5 +1,4 @@
 file=open("New CSV-Data.csv","r")
-
 dictionary = {}
 
 try:
@@ -20,11 +19,11 @@ def returnKeysFromDictionary():
     keys = list(dictionary.keys())
     return keys
 
-def returnValuesInList(string):
+def returnValuesInList(columnName):
     numbers = returnKeysFromDictionary
     list = []
     for numbers in dictionary:
-        list.append(float(dictionary[numbers][string]))
+        list.append(float(dictionary[numbers][columnName]))
     return list
 
 def returnTotalPrice():
@@ -40,7 +39,7 @@ def returnCountNumberOfItems():
     numbers = returnCountNumberOfItems
     count = 0
     for numbers in dictionary:
-        count = count+1
+        count = count + 1
     return count
 
 print("Number of Items: " + str(returnCountNumberOfItems()))
