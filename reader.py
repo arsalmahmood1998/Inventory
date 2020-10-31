@@ -78,4 +78,4 @@ def value(rowNum,columnNum):
     except IndexError:
         print("Given value does not exists")
 
-print("Your required values is: " + str(value(4,7)))
+print("Your required value is: " + str(value(4,7)))
