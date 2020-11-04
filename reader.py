@@ -76,7 +76,7 @@ def value(rowNum,columnNum):
         elif columnNum <= 0 and  rowNum > 0:
             return values[rowNum-2],values.index(values[rowNum-2])+2,titles.index(titles[columnNum])
         elif rowNum <= 0 and columnNum <= 0:
-            return values[rowNum],values.index(values[rowNum])+2,titles.index(titles[columnNum])
+            return values[rowNum],values.index(values[rowNum ])+2,titles.index(titles[columnNum])
         return values[rowNum-2]
 
 print("Your required value is: " + str(value(-8,8)))
